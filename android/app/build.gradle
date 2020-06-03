@@ -132,8 +132,8 @@ android {
         applicationId "com.minesweeper_app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.1.0"
     }
     splits {
         abi {
@@ -194,9 +194,16 @@ android {
 
         }
     }
+
+    configurations.all {
+        resolutionStrategy {
+            force "com.facebook.soloader:soloader:0.8.2"
+        }
+    }
 }
 
 dependencies {
+    compile project(':react-native-webview')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
